@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ранги Сенджу</title><style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Roboto:wght@400;500;700&display=swap');
+
+:root{
+  --bg:#090909;--paper:#15110d;--paper2:#1d1711;--text:#f5ead7;
+  --muted:#b9a98f;--red:#9f211b;--red2:#d34a30;--gold:#c99a4a;
+  --line:#4b3320;--shadow:rgba(0,0,0,.65)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ margin:0;color:var(--text);font-family:Roboto,Arial,sans-serif;line-height:1.7;
+ background:
+ radial-gradient(circle at 50% 0%,rgba(159,33,27,.22),transparent 35%),
+ linear-gradient(180deg,#0d0b09,#050505 70%);
+}
+body:before{
+ content:"";position:fixed;inset:0;pointer-events:none;opacity:.12;
+ background-image:radial-gradient(#fff 0.6px,transparent .6px);
+ background-size:5px 5px;mix-blend-mode:screen
+}
+header{
+ min-height:440px;display:flex;align-items:center;justify-content:center;text-align:center;
+ padding:70px 20px;position:relative;overflow:hidden;border-bottom:3px solid var(--red);
+ background:
+ linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.75)),
+ radial-gradient(ellipse at center,#38251a 0,#110c08 55%,#050505 100%);
+}
+header:before{
+ content:"";position:absolute;width:420px;height:420px;border:2px solid rgba(201,154,74,.2);
+ border-radius:50%;transform:rotate(12deg);box-shadow:0 0 0 18px rgba(201,154,74,.035),0 0 0 55px rgba(201,154,74,.025)
+}
+header:after{
+ content:"千";position:absolute;font-family:Cinzel,serif;font-size:310px;color:rgba(159,33,27,.10);
+ right:7%;top:35px;line-height:1
+}
+.hero{max-width:950px;position:relative;z-index:1}
+.badge{
+ display:inline-block;padding:8px 20px;border:1px solid var(--gold);color:var(--gold);
+ letter-spacing:4px;font-family:Cinzel,serif;font-size:12px;background:rgba(0,0,0,.35)
+}
+h1{
+ font-family:Cinzel,Georgia,serif;font-size:clamp(42px,8vw,82px);margin:24px 0 8px;
+ letter-spacing:7px;text-shadow:4px 4px 0 #250b08,0 0 30px rgba(211,74,48,.25)
+}
+.subtitle{color:#d5c5aa;font-size:18px;letter-spacing:1px}
+nav{
+ position:sticky;top:0;z-index:10;background:rgba(8,7,6,.95);
+ border-bottom:1px solid var(--line);box-shadow:0 5px 22px var(--shadow);backdrop-filter:blur(8px)
+}
+.navinner{max-width:1150px;margin:auto;display:flex;justify-content:center;gap:7px;overflow-x:auto;padding:10px 15px}
+nav a{
+ color:#cdbda4;text-decoration:none;padding:10px 15px;white-space:nowrap;
+ border:1px solid transparent;font-family:Cinzel,serif;font-size:13px
+}
+nav a:hover{color:white;border-color:var(--red);background:rgba(159,33,27,.18)}
+main{max-width:1150px;margin:auto;padding:55px 18px 90px}
+section{margin-bottom:70px}
+.section-title{
+ font-family:Cinzel,Georgia,serif;font-size:31px;margin:0 0 27px;
+ border-left:6px solid var(--red);padding:10px 16px;
+ background:linear-gradient(90deg,rgba(159,33,27,.16),transparent);
+ text-shadow:2px 2px #000
+}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:19px}
+.card{
+ position:relative;background:linear-gradient(145deg,rgba(29,23,17,.97),rgba(12,10,8,.97));
+ border:1px solid var(--line);border-radius:3px;padding:25px;
+ box-shadow:0 12px 35px rgba(0,0,0,.32);overflow:hidden
+}
+.card:before{
+ content:"";position:absolute;left:0;top:0;width:100%;height:3px;
+ background:linear-gradient(90deg,transparent,var(--red),transparent)
+}
+.card:hover{transform:translateY(-2px);border-color:#76502c}
+.card h3{
+ font-family:Cinzel,Georgia,serif;font-size:21px;margin-top:0;color:#ead5af
+}
+.card p{margin:0 0 10px}.card ul{margin:10px 0 0;padding-left:23px}
+.card li::marker{color:var(--red2)}
+.rule strong{display:block;color:#fff0d2;font-family:Cinzel,Georgia,serif;font-size:18px;margin-bottom:9px}
+.muted{color:var(--muted)}
+.rank{padding-top:58px}
+.ranknum{
+ position:absolute;top:17px;right:19px;color:var(--gold);font-family:Cinzel,serif;
+ font-size:11px;letter-spacing:2px;border-bottom:1px solid var(--red);padding-bottom:3px
+}
+.quote{
+ border:1px solid var(--gold);background:
+ radial-gradient(circle,#291d12,#0e0b08 70%);padding:45px 28px;border-radius:3px;
+ text-align:center;font-family:Cinzel,Georgia,serif;font-size:27px;
+ box-shadow:inset 0 0 50px rgba(0,0,0,.5),0 15px 35px rgba(0,0,0,.3)
+}
+.quote small{display:block;margin-top:18px;color:#c9b99f;font:400 15px/1.7 Roboto,Arial,sans-serif}
+.topbtn{
+ position:fixed;right:20px;bottom:20px;width:48px;height:48px;z-index:20;
+ border:1px solid var(--gold);background:#160d09;color:#e8c98d;border-radius:3px;
+ cursor:pointer;font-size:20px;box-shadow:0 5px 20px #000
+}
+.topbtn:hover{background:var(--red)}
+footer{
+ text-align:center;border-top:1px solid var(--line);padding:35px;color:#8e806c;
+ background:#070605;font-family:Cinzel,serif;letter-spacing:1px
+}
+@media(max-width:600px){
+ main{padding-top:35px}.card{padding:20px}.section-title{font-size:25px}
+ header{min-height:380px}header:after{font-size:220px;right:-20px}
+}
+
+.lore-intro{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;align-items:stretch;margin-bottom:22px}
+.lore-image{min-height:340px;border:1px solid var(--line);background-size:cover;background-position:center;border-radius:3px;position:relative;overflow:hidden;box-shadow:0 15px 35px rgba(0,0,0,.45)}
+.lore-image:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.78))}
+.lore-caption{position:absolute;bottom:17px;left:18px;right:18px;z-index:1;font-family:Cinzel,Georgia,serif;color:#f0d4a0;font-size:14px;letter-spacing:.7px}
+.lore-timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:20px}
+.lore-step{border-top:2px solid var(--red);padding:17px 18px;background:rgba(29,23,17,.8);border-left:1px solid var(--line);border-right:1px solid var(--line)}
+.lore-step span{color:var(--gold);font-family:Cinzel,serif;font-size:12px;letter-spacing:2px}
+.lore-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+.gallery-img{height:210px;background-size:cover;background-position:center;border:1px solid var(--line);position:relative;overflow:hidden}
+.gallery-img:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.72))}
+.gallery-label{position:absolute;left:14px;bottom:12px;z-index:1;font-family:Cinzel,serif;color:#f0d4a0;font-size:13px}
+.sources{font-size:13px;color:var(--muted);margin-top:18px}.sources a{color:#d5b374}
+@media(max-width:760px){.lore-intro{grid-template-columns:1fr}.lore-gallery{grid-template-columns:1fr}.gallery-img{height:240px}}
+
+.navinner a.active{color:#fff;border-color:var(--red);background:rgba(159,33,27,.20)}
+.page-hero{padding:70px 18px 35px;max-width:1150px;margin:auto}
+.page-hero .kicker{color:var(--gold);font-family:Cinzel,serif;letter-spacing:3px;font-size:12px}
+.page-hero h2{font-family:Cinzel,Georgia,serif;font-size:40px;margin:8px 0}
+.backnote{color:var(--muted);margin-top:5px}
+.hero-link{display:inline-block;margin-top:22px;color:#ead5af;border:1px solid var(--gold);padding:10px 16px;text-decoration:none}
+.lore-image{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--line);margin-bottom:18px}
+.lore-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.timeline{border-left:3px solid var(--red);padding-left:22px}
+.timeline .event{margin:0 0 24px}
+.timeline .year{color:var(--gold);font-family:Cinzel,serif;letter-spacing:1px}
+.home-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px}
+.home-actions a{color:#ead5af;text-decoration:none;border:1px solid var(--line);padding:12px 18px;background:#110d09}
+</style></head><body>
+<header><div class="hero"><span class="badge">Клан Сенджу</span><h1>РАНГИ СЕНДЖУ</h1><div class="subtitle">Устав · Традиции · История</div></div></header>
+
+<nav><div class="navinner">
+<a href="index.html" class="">Главная</a>
+<a href="rules.html" class="">Правила</a>
+<a href="ranks.html" class="active">Ранги</a>
+<a href="lore.html" class="">Лор</a>
+</div></nav>
+<main>
+<div class="page-hero"><div class="kicker">РАЗДЕЛ II</div><h2>Система рангов клана Сенджу</h2><div class="backnote">Иерархия, обязанности и путь повышения.</div></div>
+<section><div class="grid">
+<article class="card rank"><span class="ranknum">РАНГ 01</span><h3>Новобранец Сенджу</h3><p>Новичок, который только вступил в клан.</p><b>Обязанности:</b><ul><li>изучать правила клана;</li><li>посещать тренировки;</li><li>развивать свои навыки;</li><li>уважать старших членов клана;</li><li>помогать товарищам.</li></ul><p>Повышение происходит после прохождения обучения и доказательства своей преданности клану.</p></article>
+<article class="card rank"><span class="ranknum">РАНГ 02</span><h3>Член клана Сенджу</h3><p>Один из наиболее опытных и сильных воинов клана.</p><b>Обязанности:</b><ul><li>посещать тренировки;</li><li>защищать членов клана;</li><li>поддерживать порядок внутри клана;</li><li>выполнять особо важные задания.</li></ul></article>
+<article class="card rank"><span class="ranknum">РАНГ 03</span><h3>Старейшина Сенджу</h3><p>Уважаемый член клана, обладающий большим опытом и авторитетом.</p><b>Обязанности:</b><ul><li>давать советы главе клана;</li><li>разрешать серьёзные споры;</li><li>следить за традициями Сенджу;</li><li>участвовать в принятии важных решений;</li><li>помогать сохранять единство клана.</li></ul></article>
+<article class="card rank"><span class="ranknum">РАНГ 04</span><h3>Заместитель главы клана</h3><p>Главный помощник главы клана Сенджу.</p><b>Обязанности:</b><ul><li>помогать главе управлять кланом;</li><li>организовывать собрания и тренировки;</li><li>контролировать выполнение приказов;</li><li>решать текущие вопросы клана;</li><li>временно руководить кланом при отсутствии главы.</li></ul></article>
+<article class="card rank"><span class="ranknum">РАНГ 05</span><h3>Глава клана Сенджу</h3><p>Высшая должность в клане.</p><b>Глава клана обязан:</b><ul><li>защищать интересы клана;</li><li>поддерживать единство Сенджу;</li><li>следить за соблюдением устава;</li><li>принимать важные решения;</li><li>поддерживать отношения с другими кланами;</li><li>заботиться о безопасности членов клана и деревни;</li><li>решать серьёзные конфликты внутри клана и с союзниками.</li></ul></article>
+</div></section>
+<section><h2 class="section-title">Повышение в ранге</h2><div class="card"><p>Повышение зависит не только от силы. При принятии решения учитываются:</p><div class="grid"><div><ul><li>преданность клану;</li><li>активность на тренировках и собраниях;</li><li>помощь товарищам;</li><li>соблюдение устава;</li></ul></div><div><ul><li>боевые навыки;</li><li>ответственность;</li><li>умение работать в команде;</li><li>уважение со стороны других членов клана;</li><li>способность принимать правильные решения.</li></ul></div></div><p><b>Сила без преданности и ответственности не делает человека достойным высокого ранга.</b></p></div></section>
+</main>
+<button class="topbtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Наверх">↑</button>
+<footer>Клан Сенджу · Отдельная страница раздела</footer>
+</body></html>
